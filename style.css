@@ -9,39 +9,39 @@ html {
     scroll-padding-top:env(safe-area-inset-top,0px)}
  body {
     margin:0;
-    font:15px/1.5 Inter,Figtree,system-ui,sans-serif;
+    font:bold 15px/1.5 Arial, Helvetica, sans-serif;
     background:var(--bg);
     color:var(--ink);
     transition:background .4s}
  body.login {
-    --bg:#080808;
-    --ink:#f5f5f5;
-    --a:#e50914;
-    --b:#ff3b30;
-    --c:#ff6b6b;
-    --card:#111;
-    --mut:#999;
-    --line:#292929}
+    --bg:#f8fafc;
+    --ink:#0f172a;
+    --a:#1e3a8a;
+    --b:#2563eb;
+    --c:#3b82f6;
+    --card:#ffffff;
+    --mut:#64748b;
+    --line:#e2e8f0}
  body.student {
-    --bg:#090909;
-    --ink:#f4f4f4;
-    --a:#e50914;
-    --b:#ff3b30;
-    --c:#ff6b6b;
-    --card:#111;
-    --mut:#9d9d9d;
-    --line:#292929}
+    --bg:#f8fafc;
+    --ink:#0f172a;
+    --a:#1e3a8a;
+    --b:#2563eb;
+    --c:#3b82f6;
+    --card:#ffffff;
+    --mut:#64748b;
+    --line:#e2e8f0}
  body.faculty {
-    --bg:#080808;
-    --ink:#f4f4f4;
-    --a:#e50914;
-    --b:#ff3b30;
-    --c:#ff6b6b;
-    --card:#121212;
-    --mut:#9d9d9d;
-    --line:#2a2a2a}
+    --bg:#f8fafc;
+    --ink:#0f172a;
+    --a:#1e3a8a;
+    --b:#2563eb;
+    --c:#3b82f6;
+    --card:#ffffff;
+    --mut:#64748b;
+    --line:#e2e8f0}
  h1,h2,h3 {
-    font-family:'Bricolage Grotesque',sans-serif;
+    font-family: Arial, Helvetica, sans-serif; font-weight: 800;
     margin:0 0 .4em;
     letter-spacing:-.02em}
  button,input,select,textarea {
@@ -92,7 +92,7 @@ button.no {
     flex-direction:column;
     gap:6px}
  nav .logo {
-    font:800 22px 'Bricolage Grotesque';
+    font:800 22px Arial, Helvetica, sans-serif;
     margin-bottom:14px;
     background:linear-gradient(120deg,var(--a),var(--c));
     -webkit-background-clip:text;
@@ -123,10 +123,10 @@ button.no {
  .hero {
     border-radius:26px;
     padding:24px;
-    background:linear-gradient(135deg,#e50914,#8d0008 72%,#150000);
+    background:linear-gradient(135deg,#1e3a8a,#1e40af 72%,#172554);
     color:#fff;
     margin-bottom:18px;
-    box-shadow:0 18px 45px #e5091426}
+    box-shadow:0 18px 45px #1e3a8a26}
  .hero h1 {
     font-size:30px;
     margin:0}
@@ -134,8 +134,8 @@ button.no {
     margin:4px 0 0;
     opacity:.9}
  body.faculty .hero {
-    background:linear-gradient(135deg,#e50914,#680006 72%,#130000);
-    border:1px solid #ff3b3044}
+    background:linear-gradient(135deg,#1e3a8a,#1e40af 72%,#172554);
+    border:1px solid #3b82f644}
  .grid {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -249,7 +249,7 @@ button.no {
  .ring * {
     position:relative}
 .ring b {
-    font:800 22px 'Bricolage Grotesque';
+    font:800 22px Arial, Helvetica, sans-serif;
     display:block;
     line-height:1}
 .ring small {
@@ -263,7 +263,7 @@ button.no {
 .bar i {
     display:block;
     height:100%;
-    background:linear-gradient(90deg,#e50914,#ff5a5f);
+    background:linear-gradient(90deg,#1e3a8a,#3b82f6);
     border-radius:9px;
     transition:width .8s}
  .row {
@@ -349,14 +349,14 @@ button.no {
     display:grid;
     place-items:center;
     padding:20px;
-    background:radial-gradient(circle at 15% 20%,#e5091438,transparent 38%),radial-gradient(circle at 85% 80%,#7a000018,transparent 40%),#070707}
+    background:radial-gradient(circle at 15% 20%,#1e3a8a38,transparent 38%),radial-gradient(circle at 85% 80%,#1e40af18,transparent 40%),#f8fafc}
  .lg .box {
-    background:linear-gradient(145deg,#151515,#0e0e0e);
+    background:#ffffff;
     padding:32px;
     border-radius:26px;
     width:min(400px,100%);
-    border:1px solid #2d2d2d;
-    box-shadow:0 25px 70px #000}
+    border:1px solid #e2e8f0;
+    box-shadow:0 25px 70px rgba(0,0,0,0.05)}
  .lg h1 {
     font-size:36px}
 .demo {
@@ -365,8 +365,8 @@ button.no {
     margin:10px 0}
 .demo button {
     flex:1;
-    background:#ffffff18;
-    color:#fff;
+    background:#e2e8f0;
+    color:#0f172a;
     font-size:13px}
  @media(max-width:720px) {
     .app {
@@ -402,49 +402,228 @@ nav button.on {
     animation:none!important;
     transition:none!important}
 }
- /* Premium red-black polish */ ::selection {
-    background:#e50914;
+ /* Professional dark-blue white polish */ ::selection {
+    background:#1e3a8a;
     color:#fff}
  body {
-    background-image:radial-gradient(circle at 100% 0,#e5091408,transparent 30%)}
+    background-image:radial-gradient(circle at 100% 0,#1e3a8a08,transparent 30%)}
  nav {
-    background:#090909;
-    border-right:1px solid #1d1d1d}
+    background:#ffffff;
+    border-right:1px solid #e2e8f0}
  nav button:hover {
-    background:#151515;
-    color:#fff}
+    background:#f1f5f9;
+    color:#0f172a}
  nav button.on {
-    background:#151515;
-    color:#fff;
-    box-shadow:inset 3px 0 0 #e50914}
+    background:#f1f5f9;
+    color:#0f172a;
+    box-shadow:inset 3px 0 0 #1e3a8a}
  nav .logo {
-    background:linear-gradient(120deg,#fff,#e50914);
+    background:linear-gradient(120deg,#1e3a8a,#3b82f6);
     -webkit-background-clip:text;
     background-clip:text}
  input,select,textarea {
-    background:#0c0c0c;
-    border-color:#292929}
+    background:#ffffff;
+    border-color:#e2e8f0}
  input:focus,select:focus,textarea:focus {
-    border-color:#e50914;
-    box-shadow:0 0 0 3px #e5091418;
+    border-color:#1e3a8a;
+    box-shadow:0 0 0 3px #1e3a8a18;
     outline:none}
  .card {
-    background:linear-gradient(145deg,#151515,#101010)}
+    background:#ffffff}
  .card:hover {
-    border-color:#e5091438}
+    border-color:#1e3a8a38}
  button:hover {
-    box-shadow:0 8px 22px #e5091433}
+    box-shadow:0 8px 22px #1e3a8a33}
  .chips button.on {
-    background:#e50914;
+    background:#1e3a8a;
     color:#fff;
-    border-color:#e50914}
+    border-color:#1e3a8a}
  .dot {
-    background:#e50914;
-    box-shadow:0 0 0 4px #e5091418}
+    background:#1e3a8a;
+    box-shadow:0 0 0 4px #1e3a8a18}
  #dr {
-    border-left:1px solid #292929;
-    box-shadow:-20px 0 60px #0008}
+    border-left:1px solid #e2e8f0;
+    box-shadow:-20px 0 60px rgba(0,0,0,0.1)}
  .toast {
-    background:#f5f5f5;
-    color:#090909;
-    border-left:3px solid #e50914}
+    background:#0f172a;
+    color:#ffffff;
+    border-left:3px solid #3b82f6}
+
+
+/* =========================================================
+   DYNAMIC HUB (UNCONVENTIONALLY BEAUTIFUL)
+========================================================= */
+
+.dynamic-hub {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    margin-top: 20px;
+}
+
+.hub-title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 70px;
+    letter-spacing: -0.04em;
+    opacity: 0;
+    transform: translateY(-20px);
+    color: var(--ink);
+}
+
+.hub-galaxy {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.hub-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 35px 25px;
+    width: 250px;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    opacity: 0;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.04);
+}
+
+.hub-card:hover {
+    transform: scale(1.05) translateY(-15px) !important;
+    background: linear-gradient(135deg, var(--a), var(--b));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 22px 45px rgba(37, 99, 235, 0.25);
+    z-index: 10;
+}
+
+.hub-card:hover .hub-icon-elem {
+    background: #fff !important;
+    border-color: #fff !important;
+}
+
+/* Animations */
+@keyframes fadeDown {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes floatX {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(6px, -12px); }
+    50% { transform: translate(-4px, -18px); }
+    75% { transform: translate(-10px, 8px); }
+}
+
+.float-1 { animation: floatX 9s infinite ease-in-out, fadeDown 0.8s 0.1s forwards; }
+.float-2 { animation: floatX 11s infinite ease-in-out 0.5s, fadeDown 0.8s 0.2s forwards; }
+.float-3 { animation: floatX 8s infinite ease-in-out 1s, fadeDown 0.8s 0.3s forwards; }
+.float-4 { animation: floatX 10s infinite ease-in-out 0.2s, fadeDown 0.8s 0.4s forwards; }
+.float-5 { animation: floatX 9.5s infinite ease-in-out 1.2s, fadeDown 0.8s 0.5s forwards; }
+
+/* Animated Icons */
+.hub-icon {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pulse-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--b);
+    animation: pulseIcon 2s infinite;
+    transition: background 0.3s;
+}
+@keyframes pulseIcon {
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+    70% { box-shadow: 0 0 0 25px rgba(37, 99, 235, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.wave-bars {
+    gap: 6px;
+    height: 30px;
+}
+.wave-bars i {
+    width: 8px;
+    height: 100%;
+    background: var(--c);
+    border-radius: 4px;
+    animation: wave 1s infinite ease-in-out;
+    transition: background 0.3s;
+}
+.wave-bars i:nth-child(2) { animation-delay: 0.2s; }
+.wave-bars i:nth-child(3) { animation-delay: 0.4s; }
+@keyframes wave {
+    0%, 100% { height: 30%; }
+    50% { height: 100%; }
+}
+
+.spin-ring {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--line);
+    border-top: 4px solid var(--a);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    background: transparent !important;
+}
+.hub-card:hover .spin-ring {
+    border-color: rgba(255,255,255,0.3) !important;
+    border-top-color: #fff !important;
+}
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.bounce-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--b);
+    border-radius: 50%;
+    animation: bounce 0.6s infinite alternate;
+    transition: background 0.3s;
+}
+@keyframes bounce {
+    to { transform: translateY(-20px) scale(1.1); }
+}
+
+.flash-bell {
+    width: 36px;
+    height: 36px;
+    background: var(--a);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    animation: flash 2s infinite;
+    transition: background 0.3s;
+}
+@keyframes flash {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.4; transform: scale(0.9); }
+}

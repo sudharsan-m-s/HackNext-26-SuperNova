@@ -62,7 +62,7 @@ const D = {
     S101: {
       pw: 'demo123',
       role: 'student',
-      name: 'Aarav Menon',
+      name: 'Arun',
       dept: 'CSE',
       sec: 'B',
 
@@ -548,7 +548,7 @@ function sched(list, editable) {
   if (!list.length) {
 
     return empty(
-      '🌴',
+      '',
       'No classes today. Enjoy the free day.'
     );
 
@@ -758,32 +758,32 @@ const NAV = {
 
   student: [
 
-    ['today', '🌅', 'Today'],
+    ['today', '', 'Today'],
 
-    ['inbox', '📣', 'Inbox'],
+    ['inbox', '', 'Inbox'],
 
-    ['tasks', '✅', 'Tasks'],
+    ['tasks', '', 'Tasks'],
 
-    ['grades', '🎯', 'Grades'],
+    ['grades', '', 'Grades'],
 
-    ['alerts', '🔔', 'Alerts']
+    ['alerts', '', 'Alerts']
 
   ],
 
 
   faculty: [
 
-    ['today', '🧭', 'Command'],
+    ['today', '', 'Command'],
 
-    ['bcast', '📡', 'Broadcast'],
+    ['bcast', '', 'Broadcast'],
 
-    ['tasks', '📝', 'Tasks'],
+    ['tasks', '', 'Tasks'],
 
-    ['pulse', '📈', 'Pulse'],
+    ['pulse', '', 'Pulse'],
 
-    ['swap', '🔁', 'Schedule'],
+    ['swap', '', 'Schedule'],
 
-    ['alerts', '🕘', 'Activity']
+    ['alerts', '', 'Activity']
 
   ]
 
@@ -867,7 +867,7 @@ async function render() {
           style="margin-top:auto"
         >
 
-          🚪
+          
 
           <span>
             Sign out
@@ -1235,187 +1235,66 @@ const VIEWS = {
 
     today() {
 
-      const h =
-        new Date().getHours();
-
-      const g =
-        h < 12
-          ? 'Good morning'
-          : h < 17
-            ? 'Good afternoon'
-            : 'Good evening';
-
-
-      const todo =
-        D.tasks.filter(
-          t => !t.done
-        ).length;
-
+      const h = new Date().getHours();
+      const g = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+      
+      const todo = D.tasks.filter(t => !t.done).length;
 
       return `
-
-        <div class="hero">
-
-          <h1>
-            ${g},
-            ${esc(
-              me.name.split(' ')[0]
-            )}
-            👋
+        <div class="dynamic-hub">
+          <h1 class="hub-title" style="animation: fadeDown 1s ease-out forwards;">
+            What do you want to do today, <br/>
+            <span style="color: var(--b)">${esc(me.name.split(' ')[0])}?</span>
           </h1>
 
-          <p>
+          <div class="hub-galaxy">
+            
+            <button class="hub-card float-1" onclick="document.getElementById('sched-section').scrollIntoView({behavior:'smooth'})">
+              <div class="hub-icon"><div class="hub-icon-elem pulse-circle"></div></div>
+              <span>Wanna check your schedule?</span>
+            </button>
 
-            ${D.sched.length}
-            classes today
+            <button class="hub-card float-2" data-tab="inbox">
+              <div class="hub-icon wave-bars">
+                <i class="hub-icon-elem"></i><i class="hub-icon-elem"></i><i class="hub-icon-elem"></i>
+              </div>
+              <span>Have a look on broadcast?</span>
+            </button>
 
-            ·
+            <button class="hub-card float-3" data-tab="grades">
+              <div class="hub-icon"><div class="hub-icon-elem spin-ring"></div></div>
+              <span>Your current academic progress?</span>
+            </button>
 
-            ${todo}
-            thing${todo === 1 ? '' : 's'}
-            to do
+            <button class="hub-card float-4" data-tab="tasks">
+              <div class="hub-icon"><div class="hub-icon-elem bounce-dot"></div></div>
+              <span>Review your pending tasks?</span>
+            </button>
 
-            ·
+            <button class="hub-card float-5" data-tab="alerts">
+              <div class="hub-icon"><div class="hub-icon-elem flash-bell"></div></div>
+              <span>Check system alerts?</span>
+            </button>
 
-            ${D.notes.length}
-            alerts
-
-          </p>
-
+          </div>
         </div>
 
-
-        <!-- ===============================
-             QUICK ACADEMIC SUMMARY
-        ================================= -->
-
-        <div class="grid">
-
+        <div id="sched-section" class="grid" style="margin-top: 150px; opacity: 0; animation: fadeIn 2s ease-out 1s forwards;">
           <div>
-
-            <h2>
+            <h2 style="border-bottom: 2px solid var(--line); padding-bottom: 12px; margin-bottom: 20px;">
               Today's schedule
             </h2>
-
-            ${
-              sched(
-                D.sched.filter(
-                  s => s.sec === 'CSE-B'
-                )
-              )
-            }
-
+            ${sched(D.sched.filter(s => s.sec === 'CSE-B'))}
           </div>
-
-
           <div>
-
-            <h2>
+            <h2 style="border-bottom: 2px solid var(--line); padding-bottom: 12px; margin-bottom: 20px;">
               Up next
             </h2>
-
-            ${
-              D.tasks
-                .filter(t => !t.done)
-                .map(taskCard)
-                .join('')
-
-              ||
-
-              empty(
-                '🎉',
-                'All caught up.'
-              )
-            }
-
-
-            <h2>
-              Official
-            </h2>
-
-            ${
-              D.upd
-                .slice(0, 1)
-                .map(
-                  u => msgCard(u, 'upd')
-                )
-                .join('')
-            }
-
+            ${sched(D.sched.filter(s => s.sec === 'CSE-B').slice(1, 3))}
           </div>
-
         </div>
-
-
-        <!-- ===============================
-             SUBJECT ATTENDANCE
-        ================================= -->
-
-        <h2>
-          Subject attendance
-        </h2>
-
-        <div class="card">
-
-          ${Object.entries(
-            me.attendance || {}
-          ).map(
-            ([subject, percentage]) => `
-
-              <div
-                style="margin-bottom:16px"
-              >
-
-                <div class="row">
-
-                  <b>
-                    ${esc(subject)}
-                  </b>
-
-
-                  <span
-                    class="chip ${
-                      percentage < 75
-                        ? 'r'
-                        : percentage < 80
-                          ? 'y'
-                          : 'g'
-                    }"
-                  >
-                    ${percentage}%
-                  </span>
-
-                </div>
-
-
-                <div
-                  class="bar"
-                  style="margin-top:7px"
-                >
-
-                  <i
-                    style="
-                      width:${percentage}%
-                    "
-                  ></i>
-
-                </div>
-
-              </div>
-
-            `
-          ).join('')}
-
-        </div>
-
       `;
-
     },
-
-
-    /* =====================================================
-       INBOX
-    ===================================================== */
 
     inbox() {
 
@@ -1503,7 +1382,7 @@ const VIEWS = {
           ||
 
           empty(
-            '📭',
+            '',
             'Nothing here. Switch filters to see more.'
           )
         }
@@ -1571,7 +1450,7 @@ const VIEWS = {
           ||
 
           empty(
-            '✨',
+            '',
             'No tasks in this view.'
           )
         }
@@ -1691,7 +1570,7 @@ const VIEWS = {
             ||
 
             empty(
-              '📊',
+              '',
               'Subject attendance not available.'
             )
           }
@@ -1815,7 +1694,7 @@ const VIEWS = {
           ||
 
           empty(
-            '🔕',
+            '',
             'No alerts right now.'
           )
         }
@@ -1907,15 +1786,15 @@ const VIEWS = {
         >
 
           <button data-tab="bcast">
-            📡 Broadcast
+             Broadcast
           </button>
 
           <button data-tab="tasks">
-            📝 New task
+             New task
           </button>
 
           <button data-tab="swap">
-            🔁 Edit schedule
+             Edit schedule
           </button>
 
         </div>
